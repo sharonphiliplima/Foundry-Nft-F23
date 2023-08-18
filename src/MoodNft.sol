@@ -9,7 +9,7 @@ import {console} from "forge-std/console.sol";
 contract MoodNft is ERC721 {
     //Errors
     error MoodNft__CantFlipMoodIfNotOwner();
-    uint256 private s_tokenCounter;
+    uint256 private s_tokenId;
     string private s_sadSvgImageUri;
     string private s_happySvgImageUri;
 
@@ -25,15 +25,15 @@ contract MoodNft is ERC721 {
         string memory sadSvgImageUri,
         string memory happySvgImageUri
     ) ERC721("Mood NFT", "MT") {
-        s_tokenCounter = 0;
+        s_tokenId = 0;
         s_happySvgImageUri = happySvgImageUri;
         s_sadSvgImageUri = sadSvgImageUri;
     }
 
     function mintNft() public {
-        _safeMint(msg.sender, s_tokenCounter);
-        s_tokenIdToMood[s_tokenCounter] = Mood.HAPPY; //default the mood to being happy
-        s_tokenCounter++;
+        _safeMint(msg.sender, s_tokenId);
+        s_tokenIdToMood[s_tokenId] = Mood.HAPPY; //default the mood to being happy
+        s_tokenId++;
     }
 
     function flipMood(uint256 tokenId) public {
@@ -58,12 +58,10 @@ contract MoodNft is ERC721 {
     function tokenURI(
         uint256 tokenId
     ) public view override returns (string memory) {
-        string memory imageURI;
-        if (s_tokenIdToMood[tokenId] == Mood.HAPPY) {
-            imageURI = s_happySvgImageUri; //assign happySvg
-        }
+        string memory imageURI = s_happySvgImageUri;
+
         if (s_tokenIdToMood[tokenId] == Mood.SAD) {
-            imageURI = s_sadSvgImageUri; //assign sad
+            imageURI = s_sadSvgImageUri;
         }
 
         return
