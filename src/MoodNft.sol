@@ -4,6 +4,7 @@ pragma solidity ^0.8.18;
 
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
+import {console} from "forge-std/console.sol";
 
 contract MoodNft is ERC721 {
     //Errors
@@ -46,9 +47,10 @@ contract MoodNft is ERC721 {
         } else {
             s_tokenIdToMood[tokenId] = Mood.HAPPY;
         }
+        console.log("After FlipMood:", tokenURI(tokenId));
     }
 
-    function _baseURI() internal pure virtual override returns (string memory) {
+    function _baseURI() internal pure override returns (string memory) {
         return "data:application/json;base64,";
     }
 
@@ -58,7 +60,8 @@ contract MoodNft is ERC721 {
         string memory imageURI;
         if (s_tokenIdToMood[s_tokenCounter] == Mood.HAPPY) {
             imageURI = s_happySvgImageUri; //assign happySvg
-        } else {
+        }
+        if (s_tokenIdToMood[s_tokenCounter] == Mood.SAD) {
             imageURI = s_sadSvgImageUri; //assign sad
         }
 
