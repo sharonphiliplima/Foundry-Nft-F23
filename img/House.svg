@@ -1,0 +1,27 @@
+<svg width="400" height="300" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Draw the House's walls -->
+    <rect x="100" y="150" width="200" height="100" fill="#d3b584" />
+
+    <!-- Draw the House's roof -->
+    <polygon points="80,150 200,50 320,150" fill="#8c6659" />
+
+    <!-- Draw the House's door -->
+    <rect x="180" y="190" width="40" height="60" fill="#9b5f36" />
+
+    <!-- Draw the House's windows -->
+    <rect x="130" y="170" width="40" height="40" fill="#a0d8ef" />
+    <rect x="230" y="170" width="40" height="40" fill="#a0d8ef" />
+
+    <!-- Draw the House's chimney -->
+    <rect x="270" y="100" width="30" height="50" fill="#d3b584" />
+    <polygon points="270,100 300,80 330,100" fill="#d3b584" />
+
+    <!-- Draw the House's sun -->
+    <circle cx="370" cy="40" r="25" fill="yellow" />
+
+    <!-- Draw the sun rays -->
+    <line x1="340" y1="40" x2="400" y2="40" stroke="yellow" />
+    <line x1="370" y1="15" x2="370" y2="65" stroke="yellow" />
+    <line x1="353" y1="27" x2="387" y2="53" stroke="yellow" />
+    <line x1="387" y1="27" x2="353" y2="53" stroke="yellow" />
+</svg>
