@@ -44,7 +44,8 @@ contract MoodNft is ERC721 {
 
         if (s_tokenIdToMood[tokenId] == Mood.HAPPY) {
             s_tokenIdToMood[tokenId] = Mood.SAD;
-        } else {
+        }
+        if (s_tokenIdToMood[tokenId] == Mood.SAD) {
             s_tokenIdToMood[tokenId] = Mood.HAPPY;
         }
         console.log("After FlipMood:", tokenURI(tokenId));
@@ -58,10 +59,10 @@ contract MoodNft is ERC721 {
         uint256 tokenId
     ) public view override returns (string memory) {
         string memory imageURI;
-        if (s_tokenIdToMood[s_tokenCounter] == Mood.HAPPY) {
+        if (s_tokenIdToMood[tokenId] == Mood.HAPPY) {
             imageURI = s_happySvgImageUri; //assign happySvg
         }
-        if (s_tokenIdToMood[s_tokenCounter] == Mood.SAD) {
+        if (s_tokenIdToMood[tokenId] == Mood.SAD) {
             imageURI = s_sadSvgImageUri; //assign sad
         }
 
