@@ -1,9 +1,36 @@
-example.svg: 
+**MoodNft Contract**
+The MoodNft contract is an Ethereum smart contract that allows users to mint NFTs (Non-Fungible Tokens) representing their mood. Each NFT can be in either a "happy" or "sad" state, and the state can be flipped by the owner of the NFT. The contract is built using the ERC721 standard for NFTs and extends the Ownable contract from OpenZeppelin.
 
-data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHRleHQgeD0iMTAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9ImJsYWNrIj5JIGFtIFNoYXJvbjwvdGV4dD4KPC9zdmc+
+
+*Overview*
+The MoodNft contract allows users to create and own NFTs that reflect their mood. Each NFT has a mood state, which can be either "happy" or "sad." The mood of an NFT can be flipped by its owner. The contract also provides metadata for each NFT, including an SVG image representing the NFT's mood.
+
+*Getting Started*
+To deploy and interact with the MoodNft contract, you need:
+
+An Ethereum development environment (e.g., Hardhat, Truffle, or Remix).
+The required dependencies: ERC721 from OpenZeppelin and Base64 utility from OpenZeppelin.
+Functionality
+Minting NFTs
+Users can mint new NFTs using the mintNft function. Each minted NFT starts with a mood state of "happy." The minting process also increments the token counter.
+
+*Flipping Mood*
+NFT owners can change the mood of their NFTs using the flipMood function. If the NFT is in the "happy" state, flipping it changes the mood to "sad," and vice versa. Only the owner of an NFT can change its mood.
+
+*Token Metadata*
+Each NFT's metadata is accessible using the tokenURI function. The metadata includes a JSON object containing the NFT's name, description, moodiness attribute, and an SVG image URI representing the mood.
+
+*Usage*
+Deploy the MoodNft contract to the Ethereum network.
+Call the mintNft function to mint new NFTs, which will be owned by the caller.
+Call the flipMood function to change the mood state of an owned NFT.
+Retrieve NFT metadata using the tokenURI function.
+
+*License*
+This contract is licensed under the MIT License. See LICENSE for more information.
+
+*Note: This project is for educational and informational purposes. Always review and test the code before using it in a production environment.*
 
 
-Happy SVG: data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHhtbG5z PSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIx MDAiIGZpbGw9InllbGxvdyIgcj0iNzgiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMyIg Lz4KICAgIDxnIGNsYXNzPSJleWVzIj4KICAgICAgICA8Y2lyY2xlIGN4PSI2MSIgY3k9IjgyIiBy PSIxMiIgLz4KICAgICAgICA8Y2lyY2xlIGN4PSIxMjciIGN5PSI4MiIgcj0iMTIiIC8+CiAgICA8 L2c+CiAgICA8cGF0aCBkPSJtMTM2LjgxIDExNi41M2MuNjkgMjYuMTctNjQuMTEgNDItODEuNTIt LjczIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6IGJsYWNrOyBzdHJva2Utd2lkdGg6IDM7IiAv Pgo8L3N2Zz4=
 
-Sad SVG: data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHhtbG5z PSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIx MDAiIGZpbGw9InllbGxvdyIgcj0iNzgiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMyIg Lz4KICAgIDxnIGNsYXNzPSJleWVzIj4KICAgICAgICA8Y2lyY2xlIGN4PSI2MSIgY3k9IjgyIiBy PSIxMiIgLz4KICAgICAgICA8Y2lyY2xlIGN4PSIxMjciIGN5PSI4MiIgcj0iMTIiIC8+CiAgICA8 L2c+CiAgICA8cGF0aCBkPSJtMTM2LjgxIDEyNS41M2MuNjkgLTI2LjE3LTY0LjExIC00Mi04MS41 MiA3LjI3IiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6IGJsYWNrOyBzdHJva2Utd2lkdGg6IDM7 IiAvPgo8L3N2Zz4=
 
